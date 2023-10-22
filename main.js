@@ -22,6 +22,8 @@ const renderer = new THREE.WebGLRenderer({
 // TODO: da vedere cosa fanno questi comandi
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
+
 camera.position.setZ(30);
 
 /* STEP 2: Add objects to the scene */
@@ -43,8 +45,9 @@ planets.forEach(planetName => {
 		var radius = (planetsData[planetName].radius * 4) / planetsData["earth"].radius;}
 	const distance = planetsData[planetName].distanceFromSunAU;
 	const mass = planetsData[planetName].mass;
+	const rot = planetsData[planetName].angularVelocity;
 	
-	const planet = new Planet(distance, 0, radius, `./img/${planetName}.jpg`, mass);
+	const planet = new Planet(distance, 0, radius, mass, rot, `./img/${planetName}.jpg`);
 	planetsObj.push(planet);
 	planet.createPlanet();
 	scene.add(planet.obj);
@@ -69,11 +72,12 @@ Array(starNumber).fill().forEach(addStar);
 
 
 /* STEP 3: Define light scene */
-const ambientLight = new THREE.AmbientLight(0xffffff,0.5);
+const ambientLight = new THREE.AmbientLight(0xffffff, 2);
 scene.add(ambientLight);
 
 const pointLight = new THREE.PointLight(0xffffff, 100, 300);
-scene.add(pointLight);
+pointLight.position.set(30, 0, 0);
+scene.add(ambientLight, pointLight);
 
 /* HELPERS
 Hilight the position of the light or show the grid of thle plane z = 0 
@@ -94,11 +98,13 @@ function animate() {
 
 	//Self-rotation
 	planetsObj.forEach(planet => {
-		planet.mesh.rotateY(0.005);
+		planet.mesh.rotateY(planet.rot);
 	})
 	
 	// //Around-sun-rotation
-	// mercury.obj.rotateY(0.04);
+	planetsObj.forEach(planet => {
+		planet.obj.rotateY(0.02);
+	})
 
 	// Activathe when mouse rotation is active
 	controls.update();

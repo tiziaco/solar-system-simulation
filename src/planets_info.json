@@ -2,47 +2,56 @@
 	"mercury": {
 	  "distanceFromSunAU": 0.39,
 	  "mass": 3.3011e23,
-	  "radius": 2439.7
+	  "radius": 2439.7,
+	  "angularVelocity": 1.408
 	},
 	"venus": {
 	  "distanceFromSunAU": 0.72,
 	  "mass": 4.8675e24,
-	  "radius": 6051.8
+	  "radius": 6051.8,
+	  "angularVelocity": -1.178
 	},
 	"earth": {
 	  "distanceFromSunAU": 1.0,
 	  "mass": 5.972e24,
-	  "radius": 6371.0
+	  "radius": 6371.0,
+	  "angularVelocity": 0.000072921
 	},
 	"mars": {
 	  "distanceFromSunAU": 1.52,
 	  "mass": 6.4171e23,
-	  "radius": 3389.5
+	  "radius": 3389.5,
+	  "angularVelocity": 0.00007076
 	},
 	"jupiter": {
 	  "distanceFromSunAU": 5.2,
 	  "mass": 1.8982e27,
-	  "radius": 69911
+	  "radius": 69911,
+	  "angularVelocity": 0.00001306
 	},
 	"saturn": {
 	  "distanceFromSunAU": 9.58,
 	  "mass": 5.6834e26,
-	  "radius": 58232
+	  "radius": 58232,
+	  "angularVelocity": 0.00001694
 	},
 	"uranus": {
 	  "distanceFromSunAU": 19.22,
 	  "mass": 8.6810e25,
-	  "radius": 25362
+	  "radius": 25362,
+	  "angularVelocity": -0.00003263
 	},
 	"neptune": {
 	  "distanceFromSunAU": 30.05,
 	  "mass": 1.02413e26,
-	  "radius": 24622
+	  "radius": 24622,
+	  "angularVelocity": 0.00002517
 	},
 	"sun": {
-	  "distanceFromSunAU": 0.0,
+	  "distanceFromSunAU": 0,
 	  "mass": 1.989e30,
-	  "radius": 696340
+	  "radius": 696340,
+	  "angularVelocity": 0
 	}
   }
   
